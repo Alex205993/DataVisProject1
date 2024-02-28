@@ -1,0 +1,218 @@
+let data, barchart, scatterplot, choroplethmap;
+
+Promise.all([
+  d3.json('data/counties-10m.json'),
+  d3.csv('data/national_health_data.csv')
+]).then(data => {
+  const geoData = data[0];
+  const countyData = data[1];
+
+  geoData.objects.counties.geometries.forEach(d => {
+    for (let i = 0; i < countyData.length; i++) {
+      if (d.id == countyData[i].cnty_fips) {
+        d.properties.poverty_perc = +countyData[i].poverty_perc;
+        d.properties.poverty_perc = +countyData[i].poverty_perc;
+        d.properties.median_household_income = +countyData[i].median_household_income;
+        d.properties.education_less_than_high_school_percent = +countyData[i].education_less_than_high_school_percent;
+        d.properties.air_quality = +countyData[i].air_quality;
+        d.properties.park_access = +countyData[i].park_access;
+        d.properties.percent_inactive = +countyData[i].percent_inactive;
+        d.properties.percent_smoking = +countyData[i].percent_smoking;
+        d.properties.elderly_percentage = +countyData[i].elderly_percentage;
+        d.properties.number_of_hospitals = +countyData[i].number_of_hospitals;
+        d.properties.number_of_primary_care_physicians = +countyData[i].number_of_primary_care_physicians;
+        d.properties.percent_no_heath_insurance = +countyData[i].percent_no_heath_insurance;
+        d.properties.percent_high_blood_pressure = +countyData[i].percent_high_blood_pressure;
+        d.properties.percent_coronary_heart_disease = +countyData[i].percent_coronary_heart_disease;
+        d.properties.percent_stroke = +countyData[i].percent_stroke;
+        d.properties.percent_high_cholesterol = +countyData[i].percent_high_cholesterol;
+      }
+    }
+  })
+
+  countyData.forEach(d => { 
+    d.display_name;
+    d.poverty_perc = +d.poverty_perc;
+    d.median_household_income = +d.median_household_income;
+    d.education_less_than_high_school_percent = +d.education_less_than_high_school_percent;
+    d.air_quality = +d.air_quality;
+    d.park_access = +d.park_access;
+    d.percent_inactive = +d.percent_inactive;
+    d.percent_smoking = +d.percent_smoking;
+    d.urban_rural_status;
+    d.elderly_percentage = +d.elderly_percentage;
+    d.number_of_hospitals = +d.number_of_hospitals;
+    d.number_of_primary_care_physicians = +d.number_of_primary_care_physicians;
+    d.percent_no_heath_insurance = +d.percent_no_heath_insurance;
+    d.percent_high_blood_pressure = +d.percent_high_blood_pressure;
+    d.percent_coronary_heart_disease = +d.percent_coronary_heart_disease;
+    d.percent_stroke = +d.percent_stroke;
+    d.percent_high_cholesterol = +d.percent_high_cholesterol;
+
+});
+
+
+
+    //process the data - this is a forEach function.  You could also do a regular for loop.... 
+    
+    const barchart = new Barchart({ 
+    'parentElement': '#barchart'}, countyData);
+
+    const barchart2 = new Barchart({ 
+      'parentElement': '#barchart2'}, countyData);
+
+    const scatterplot = new Scatterplot({ 
+      'parentElement': '#scatterplot'}, countyData);
+
+    const choroplethmap = new ChoroplethMap({
+      'parentElement': '#choroplethmap'}, geoData);
+
+      const choroplethmap2 = new ChoroplethMap({
+        'parentElement': '#choroplethmap2'}, geoData);
+
+
+    
+
+    document.getElementById('generateGraph').addEventListener('click', function(){
+
+      let attributeText1;
+      let attributeText2;
+      let attribute1Value = document.querySelector('#Attribute1').value;  
+      let attribute2Value = document.querySelector('#Attribute2').value;      
+      if(attribute1Value == 'poverty_perc') {
+          attributeText1 = "Poverty Percentage";
+        }
+      else if(attribute1Value == 'median_household_income'){
+          attributeText1 = "Median Household Income";
+      }
+      else if(attribute1Value == 'education_less_than_high_school_percent'){
+        attributeText1 = "Education Less Than HighSchool Percent";
+      }
+      else if(attribute1Value == 'air_quality'){
+        attributeText1 = "Air Quality";
+      }
+      else if(attribute1Value == 'park_access'){
+        attributeText1 = "Park Access";
+      }
+      else if(attribute1Value == 'percent_inactive'){
+        attributeText1 = "Inactive Percentage";
+      }
+      else if(attribute1Value == 'percent_smoking'){
+        attributeText1 = "Smoking Percentage";
+      }
+      else if(attribute1Value == 'elderly_percentage'){
+        attributeText1 = "Elderly Percentage";
+      }
+      else if(attribute1Value == 'number_of_hospitals'){
+        attributeText1 = "Number of Hospitals";
+      }
+      else if(attribute1Value == 'number_of_primary_care_physicians'){
+        attributeText1 = "Number of Primary Care Physicians";
+      }
+      else if(attribute1Value == 'percent_no_heath_insurance'){
+        attributeText1 = "No Health Insurance Percentage";
+      }
+      else if(attribute1Value == 'percent_high_blood_pressure'){
+        attributeText1 = "High Blood Pressure Percentage";
+      }
+      else if(attribute1Value == 'percent_coronary_heart_disease'){
+        attributeText1 = "Coronary Heart Disease Percentage";
+      }
+      else if(attribute1Value == 'percent_stroke'){
+        attributeText1 = "Stroke Percentage";
+      }
+      else if(attribute1Value == 'percent_high_cholesterol'){
+        attributeText1 = "High Cholesterol Percentage";
+      }
+      else{
+        attributeText1 = "none";
+      }
+
+
+    if(attribute2Value == 'poverty_perc') {
+      attributeText2 = "Poverty Percentage";
+    }
+    else if(attribute2Value == 'median_household_income'){
+        attributeText2 = "Median Household Income";
+    }
+    else if(attribute2Value == 'education_less_than_high_school_percent'){
+      attributeText2 = "Education Less Than HighSchool Percent";
+    }
+    else if(attribute2Value == 'air_quality'){
+      attributeText2 = "Air Quality";
+    }
+    else if(attribute2Value == 'park_access'){
+      attributeText2 = "Park Access";
+    }
+    else if(attribute2Value == 'percent_inactive'){
+      attributeText2 = "Inactive Percentage";
+    }
+    else if(attribute2Value == 'percent_smoking'){
+      attributeText2 = "Smoking Percentage";
+    }
+    else if(attribute2Value == 'elderly_percentage'){
+      attributeText2 = "Elderly Percentage";
+    }
+    else if(attribute2Value == 'number_of_hospitals'){
+      attributeText2 = "Number of Hospitals";
+    }
+    else if(attribute2Value == 'number_of_primary_care_physicians'){
+      attributeText2 = "Number of Primary Care Physicians";
+    }
+    else if(attribute2Value == 'percent_no_heath_insurance'){
+      attributeText2 = "No Health Insurance Percentage";
+    }
+    else if(attribute2Value == 'percent_high_blood_pressure'){
+      attributeText2 = "High Blood Pressure Percentage";
+    }
+    else if(attribute2Value == 'percent_coronary_heart_disease'){
+      attributeText2 = "Coronary Heart Disease Percentage";
+    }
+    else if(attribute2Value == 'percent_stroke'){
+      attributeText2 = "Stroke Percentage";
+    }
+    else if(attribute2Value == 'percent_high_cholesterol'){
+      attributeText2 = "High Cholesterol Percentage";
+    }
+    else{
+      attributeText2 = "none";
+    }
+
+      if(document.querySelector('#Graph_Type').value == "bar_graph"){
+        barchart.updateVis(document.querySelector('#Attribute1').value, attributeText1);
+        barchart2.updateVis(document.querySelector('#Attribute2').value, attributeText2);
+        document.getElementById("scatterplot").style.display = "none";
+        document.getElementById("barchart").style.display = "block";
+        document.getElementById("barchart2").style.display = "block";
+        document.getElementById("choroplethmap").style.display = "none";
+        document.getElementById("choroplethmap2").style.display = "none";
+
+        
+      }
+      else if(document.querySelector('#Graph_Type').value == "scatter_plot"){
+        scatterplot.updateVis(document.querySelector('#Attribute1').value, document.querySelector('#Attribute2').value, attributeText1, attributeText2);
+        document.getElementById("legend").style.display = "block";
+        document.getElementById("scatterplot").style.display = "block";
+        document.getElementById("barchart").style.display = "none";
+        document.getElementById("barchart2").style.display = "none";
+        document.getElementById("choroplethmap").style.display = "none";
+        document.getElementById("choroplethmap2").style.display = "none";
+      }
+      else{
+        choroplethmap.updateVis(document.querySelector('#Attribute1').value, attributeText1);
+        choroplethmap2.updateVis(document.querySelector('#Attribute2').value, attributeText2);
+        document.getElementById("scatterplot").style.display = "none";
+        document.getElementById("barchart").style.display = "none";
+        document.getElementById("barchart2").style.display = "none";
+        document.getElementById("choroplethmap").style.display = "block";
+        document.getElementById("choroplethmap2").style.display = "block";
+      }
+    })
+  
+  })
+
+.catch(error => {
+    console.error('Error:');
+    console.log(error);
+});
+

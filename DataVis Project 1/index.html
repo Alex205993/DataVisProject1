@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Visualization Project 1</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>    
+    <!-- Add HTML content, SVG drawing area, ... -->
+    <div class="title">
+        <h1>Data Visualization Project 1</h1>
+    </div>
+    <div class="name">
+        <h2>Alex Yang</h2>
+    </div>
+
+    <div class="selections">
+        <label class="selection_label" for="Attribute1"> Choose Attribute 1: </label>
+        <select class="option" name="Attribute1" id="Attribute1">
+            <option value="poverty_perc" selected>Poverty Percentage</option>
+            <option value="median_household_income">Median Household Income</option>
+            <option value="education_less_than_high_school_percent">Education less than High School Percantage</option>
+            <option value="air_quality">Air Quality</option>
+            <option value="park_access">Park Access</option>
+            <option value="percent_inactive">Inactive Percentage</option>
+            <option value="percent_smoking">Smoking Percentage</option>
+            <option value="elderly_percentage">Elderly Percentage</option>
+            <option value="number_of_hospitals">Number of Hospitals/option>
+            <option value="number_of_primary_care_physicians">Number of Primary Care Physicians</option>
+            <option value="percent_no_heath_insurance">No Health Insurance Percentage</option>
+            <option value="percent_high_blood_pressure">High Blood Pressure Percentage</option>
+            <option value="percent_coronary_heart_disease">Coronary Heart Disease Percentage</option>
+            <option value="percent_stroke">Stroke Percent</option>
+            <option value="percent_high_cholesterol">High Cholesterol Percentage</option>
+        </select>
+
+        <label class="selection_label" for="Attribute2"> Choose Attribute 2: </label>
+        <select class="option" name="Attribute2" id="Attribute2">
+            <option id="Testing Testing" value="poverty_perc">Poverty Percentage</option>
+            <option value="median_household_income" selected>Median Household Income</option>
+            <option value="education_less_than_high_school_percent">Education less than High School Percantage</option>
+            <option value="air_quality">Air Quality</option>
+            <option value="park_access">Park Access</option>
+            <option value="percent_inactive">Inactive Percentage</option>
+            <option value="percent_smoking">Smoking Percentage</option>
+            <option value="elderly_percentage">Elderly Percentage</option>
+            <option value="number_of_hospitals">Number of Hospitals/option>
+            <option value="number_of_primary_care_physicians">Number of Primary Care Physicians</option>
+            <option value="percent_no_heath_insurance">No Health Insurance Percentage</option>
+            <option value="percent_high_blood_pressure">High Blood Pressure Percentage</option>
+            <option value="percent_coronary_heart_disease">Coronary Heart Disease Percentage</option>
+            <option value="percent_stroke">Stroke Percent</option>
+            <option value="percent_high_cholesterol">High Cholesterol Percentage</option>
+        </select>
+
+        <label class="selection_label" for="Graph_Type"> Choose Graph Type: </label>
+        <select class="option" name="Graph_Type" id="Graph_Type">
+            <option value="bar_graph" selected>Bar Graph</option>
+            <option value="scatter_plot">Scatter Plot</option>
+            <option value="choropleth_map">Choropleth Map</option>
+        </select>
+
+        <button class="generateGraph" id="generateGraph">Generate Graph</button>
+    </div>
+
+    <ul style="display: none;" id="legend" class="legend">
+        <li class="legend-btn" urban-rural-status="Rural"><span class="legend-symbol"></span> Rural</li>
+        <li class="legend-btn" urban-rural-status="Suburban"><span class="legend-symbol"></span> Suburban</li>
+        <li class="legend-btn" urban-rural-status="Small City"><span class="legend-symbol"></span> Small City</li>
+    </ul>
+
+    <svg style="display: none;" id="scatterplot"></svg>
+    <svg style="display: none;" id="barchart"></svg>
+    <svg style="display: none;" id="barchart2"></svg>
+    <div style="display: none;" id="choroplethmap"></div>
+    <div style="display: none;" id="choroplethmap2"></div>
+
+    <div id="tooltip"></div>
+
+ 
+    <!-- D3 bundle -->
+    <script src="js/d3.v6.min.js"></script>
+    
+
+    <!-- Our JS code - INCLUDING the new files-->
+    <script src="js/main.js"></script>
+    <script src="js/scatterplot.js"></script>
+    <script src="js/choroplethmap.js"></script> 
+    <script src="js/barchart.js"></script> 
+    <script src="js/topojson.v3.js"></script>
+
+
+</body>
+</html>

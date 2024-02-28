@@ -1,0 +1,112 @@
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  padding: 30px;
+  background: #f7f7f7;
+}
+
+
+
+/* Tooltip */
+#tooltip {
+    position: absolute;
+    display: none;
+    background: #fff;
+    box-shadow: 3px 3px 3px 0px rgb(92 92 92 / 0.5);
+    border: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px;
+    min-width: 160px;
+    color: #333;
+  }
+  .tooltip-title {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  #tooltip ul {
+    margin: 5px 0 0 0;
+    padding-left: 20px;
+  }
+  
+#bar-tooltip {
+    position: absolute;
+    display: none;
+    background: #fff;
+    box-shadow: 3px 3px 3px 0px rgb(92 92 92 / 0.5);
+    border: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px;
+    min-width: 160px;
+    color: #333;
+  }
+  .tooltip-title {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  #tooltip ul {
+    margin: 5px 0 0 0;
+    padding-left: 20px;
+  }
+
+  .county:hover{
+    stroke: #333;
+  }
+
+  .point:hover{
+    stroke: #333;
+  }
+  .title{
+    display: flex;
+    justify-content: center;
+  }
+
+  .name{
+    display: flex;
+    justify-content: center;
+  }
+
+  .selections{
+    display: flex;
+    justify-content: center;
+  }
+
+  .option{
+    margin-right: 30px;
+    margin-left: 8px;
+  }
+
+  .legend {
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
+  }
+  .legend-btn {
+    display: inline-block;
+    margin: 0 20px 0 0;
+    transition: all ease-in-out 200ms;
+  }
+
+  .legend-symbol {
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+    display: inline-block;
+  }
+
+  .legend-btn[urban-rural-status="Rural"] .legend-symbol {
+    background: #02ed35; 
+  }
+  .legend-btn[urban-rural-status="Suburban"] .legend-symbol {
+    background: #022aed;
+  }
+  .legend-btn[urban-rural-status="Small City"] .legend-symbol {
+    background: #ed021e;
+  }
+
+  #scatterplot .chart{
+    clip-path: url(#clip);
+  }
